@@ -19,11 +19,6 @@ public class StudentController {
     public List<Student> AllStudents(){
         return studentServices.getAll();
     }
-//    @GetMapping("id/{myId}")
-//    public Student getStudent(@PathVariable Long myID){
-//        return studentServices.getByID(myID)
-//                .orElseThrow(()->new RuntimeException("Student in not found with ID: "+myID));
-//    }
     @GetMapping("id/{myID}")
     public Student getStudent(@PathVariable Long myID){
         Optional<Student> studentoptional= studentServices.getByID(myID);
@@ -57,15 +52,5 @@ public class StudentController {
         }
         else return "Student with id is not found";
     }
-//    }public ResponseEntity<?> updateStudent(@PathVariable Long myID, @RequestBody Student newStudent){
-//        if(studentServices.getByID(myID).isPresent()){
-//            Student old= studentServices.getByID(myID).get();
-//            old.setCourse(newStudent.getCourse()!=null && !newStudent.getCourse().equals(" ")?newStudent.getCourse(): old.getCourse());
-//            old.setName(newStudent.getName()!=null && !newStudent.getName().equals(" ")?newStudent.getName(): old.getName());
-//            old.setUniversity_Name(newStudent.getUniversity_Name()!=null && !newStudent.getUniversity_Name().equals(" ")?newStudent.getUniversity_Name(): old.getUniversity_Name());
-//            studentServices.saveEntry(old);
-//            return new ResponseEntity<>(old, HttpStatus.OK);
-//        }
-//        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-//    }
+
 }
